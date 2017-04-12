@@ -1,0 +1,78 @@
+#sms {
+    display: flex;
+    flex-direction: row;
+}
+
+.sms-input {
+    flex: 1;
+}
+
+
+#conversations {
+    display: flex;
+    flex-direction: row;
+}
+
+.conversation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+.foo {
+    background: lightyellow;
+}
+
+.bar {
+    background: #e0e0e0;
+}
+
+.baz {
+    background: lightskyblue;
+}
+.conversation .mute {
+    display: inline;
+}
+
+.conversation label {
+    display: inline;
+}
+
+.conversation .detail {
+}
+
+.conversation .messages {
+    flex: 1;
+}
+
+.messages div {
+    background: #eee;
+    margin: 3px;
+}
+
+.messages .request {
+    text-align: left;
+}
+
+.messages .response {
+    text-align: right;
+}
+
+.messages .customer::before {
+    content: 'customer: ';
+    color: blue;
+    font-size: 10px;
+}
+
+.messages .rep::after {
+    content: ' rep';
+    color: green;
+    font-size: 10px;
+}
+
+.messages .bot::after {
+    content: ' bot';
+    color: red;
+    font-size: 10px;
+}

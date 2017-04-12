@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>html,body,div,form,fieldset,legend,label{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}th,td{text-align:left;vertical-align:top;}h1,h2,h3,h4,h5,h6,th,td,caption{font-weight:normal;}img{border:0;}</style>
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Customer Phone Simulator</h3>
+    <div id="sms">
+        <div class="sms-input foo" id='sms-foo'>
+            <form action="" class="sms-form">
+                <input type="text">
+                <button>Send SMS</button>
+            </form>
+        </div>
+        <div class="sms-input bar" id='sms-bar'>
+            <form action="" class="sms-form">
+                <input type="text">
+                <button>Send SMS</button>
+            </form>
+        </div>
+        <div class="sms-input baz" id='sms-baz'>
+            <form action="" class="sms-form">
+                <input type="text">
+                <button>Send SMS</button>
+            </form>
+        </div>
+    </div>
+    <h3>Thread Simulator</h3>
+    <div id="conversations">
+        <div class="conversation foo" id='convo-foo'>
+            <div class="mute">
+                <input type="checkbox" id="mute-foo"/><label for="mute-foo">Mute Bot</label>
+            </div>
+            <div class="detail">
+                <pre>threadId: foo</pre>
+            </div>
+            <div class="messages">
+                <div class="request customer">hi</div>
+                <div class="response rep">Hey!</div>
+                <div class="response bot">This is bot</div>
+            </div>
+            <form action="" class="input-form">
+                <input type="text">
+                <button>Respond</button>
+            </form>
+        </div>
+        <div class="conversation bar" id='convo-bar'>
+            <div class="mute">
+                <input type="checkbox" id="mute-bar"/><label for="mute-bar">Mute Bot</label>
+            </div>            
+            <div class="detail">
+                <pre>threadId: bar</pre>
+            </div>
+            <div class="messages"></div>
+            <form action="" class="input-form">
+                <input type="text">
+                <button>Respond</button>
+            </form>
+        </div>
+        <div class="conversation baz" id='convo-baz'>
+            <div class="mute">
+                <input type="checkbox" id="mute-baz"/><label for="mute-baz">Mute Bot</label>
+            </div>            
+            <div class="detail">
+                <pre>threadId: baz</pre>
+            </div>
+            <div class="messages"></div>
+            <form action="" class="input-form">
+                <input type="text">
+                <button>Respond</button>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
