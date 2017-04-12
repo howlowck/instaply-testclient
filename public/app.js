@@ -1,3 +1,4 @@
+/* global fetch, io */
 
 const getMsgEl = (origin, msg) => {
   if (origin === 'customer') {
@@ -11,6 +12,24 @@ const getMsgEl = (origin, msg) => {
   }
 
   return ''
+}
+
+const webhook = (id, origin, msg) => {
+  const muteBot = document.querySelector(`#mute-${id}`).checked
+  fetch('/api/message', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      threadId: id,
+      origin,
+      msg,
+      muteBot
+    })
+  })
+  .then(res => res.json())
+  .then(data => console.log(data))
 }
 
 function parseHtml (str) {
@@ -34,6 +53,7 @@ smsFormsArray.forEach((form) => {
     event.target.querySelector('input').value = ''
     const id = event.target.parentNode.id.split('-')[1]
     addToThread(id, 'customer', msg)
+    webhook(id, 'customer', msg)
   })
 })
 
@@ -45,5 +65,12 @@ repFormsArray.forEach((form) => {
     event.target.querySelector('input').value = ''
     const id = event.target.parentNode.id.split('-')[1]
     addToThread(id, 'rep', msg)
+    webhook(id, 'rep', msg)
   })
+})
+
+const socket = io()
+
+socket.on('bot message', ({id, msg}) => {
+  addToThread(id, 'bot', msg)
 })
