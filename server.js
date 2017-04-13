@@ -8,7 +8,7 @@ var http = require('http').Server(app)
 var io = require('socket.io')(http)
 
 var fetch = require('node-fetch')
-const {BOT_ENDPOINT = ''} = process.env
+const {BOT_ENDPOINT} = process.env
 
 // app.use(express.static('public'))
 
@@ -54,6 +54,8 @@ app.post('/api/message', ({body}, res, next) => {
     return
   }
 
+  console.log('BOTENDPOINT:', BOT_ENDPOINT)
+
   fetch(BOT_ENDPOINT, {
     method: 'post',
     headers: {
@@ -61,7 +63,7 @@ app.post('/api/message', ({body}, res, next) => {
     },
     body: JSON.stringify(payload)
   })
-    .then(res => res.json)
+    .then(res => res.json())
     .then(data => console.log('got from the bot', data))
 
   res.json({'message': 'ok'})
