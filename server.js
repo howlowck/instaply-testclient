@@ -82,8 +82,8 @@ app.post('/api/send-message-to-customer-thread', (request, response, next) => {
   response.json({'message': 'done'})
 })
 
-http.listen(8080, function () {
-  console.log('Example app listening on port 8080!')
+http.listen(8090, function () {
+  console.log('Example app listening on port 8090!')
 })
 
 io.on('connection', function (socket) {
